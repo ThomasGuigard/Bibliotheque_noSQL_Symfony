@@ -19,13 +19,15 @@ class LivreType extends AbstractType
             'class' => 'form-div')))
             ->add('auteur', TextType::class, array('attr' => array(
             'class' => 'form-div')))
+            ->add('isbn', TextType::class, array('attr' => array(
+            'class' => 'form-div')))
             ->add('dateAchat', DateType::class, array('attr' => array(
             'class' => 'form-div')))
             ->add('etat', TextType::class, array('attr' => array(
             'class' => 'form-div')))
             ->add('thematiques', TextType::class,array('attr' => array(
             'class' => 'form-div')))
-            ->add('save', SubmitType::class)
+            ->add('Ajouter un livre', SubmitType::class)
         ;
     }
 

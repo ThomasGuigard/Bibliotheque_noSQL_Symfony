@@ -28,39 +28,44 @@ class LivreController extends Controller
 
   public function managePretAction(Request $request, $id){
 
-    $pret = new Pret();
     $dm = $this->get('doctrine_mongodb');
+    $livre = $dm->getRepository('AppBundle:Livre')->find($id);
 
-    $pret->setLivre($dm->getRepository('AppBundle:Livre')->find($id));
+    if ($livre->getPret() == null) {
 
-    $form = $this->createForm(PretType::class, $pret);
+      $pret = new Pret();
+      $pret->setLivre($livre);
 
-    $form->handleRequest($request);
+      $form = $this->createForm(PretType::class, $pret);
+
+      $form->handleRequest($request);
 
 
-    if ($form->isSubmitted() && $form->isValid()) {
+      if ($form->isSubmitted() && $form->isValid()) {
 
-      $pret = $form->getData();
-      $dm->getManager()->persist($pret);
-      $pret->getLivre()->setPret($pret);
+        $pret = $form->getData();
+        $dm->getManager()->persist($pret);
+        $pret->getLivre()->setPret($pret);
+        $dm->getManager()->flush();
+
+        return $this->redirectToRoute('homepage');
+      }
+
+      $template = $this->render('popup/addPret.html.twig', array( 'form' => $form->createView()))->getContent();
+
+      $json = json_encode($template);
+      $response = new Response($json, 200);
+      $response->headers->set('Content-Type', 'application/json');
+
+      return $response;
+    }else{
+      $pret = $livre->getPret();
+      $livre->setPret(null);
+      $dm->getManager()->remove($pret);
       $dm->getManager()->flush();
 
       return $this->redirectToRoute('homepage');
     }
-
-
-    $template = $this->render('popup/addPret.html.twig', array( 'form' => $form->createView()))->getContent();
-
-    $json = json_encode($template);
-    $response = new Response($json, 200);
-    $response->headers->set('Content-Type', 'application/json');
-
-    return $response;
-
-
-
-
-
 
   }
 

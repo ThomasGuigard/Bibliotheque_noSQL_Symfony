@@ -20,7 +20,7 @@ class PretType extends AbstractType
             'class' => 'form-div')))
             ->add('mailPersonne', TextType::class, array('attr' => array(
             'class' => 'form-div')))
-            ->add('save', SubmitType::class)
+            ->add('Emprunter le livre', SubmitType::class)
         ;
     }
 
