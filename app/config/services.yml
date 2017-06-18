@@ -33,3 +33,8 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    app.form.LivreType:
+          class: AppBundle\Form\LivreType
+          tags:
+              - { name: form.type, alias: livre_add }

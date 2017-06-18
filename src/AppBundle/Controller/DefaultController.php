@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Document\Livre;
+use AppBundle\Form\LivreType;
 
 class DefaultController extends Controller
 {
@@ -15,27 +16,32 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
-  /*    $product = new Livre();
-      $product->setTitre('Titres');
-      $product->setIsbn('Isbnr');
-      $product->setPret('Prear');
-      $product->setThematiques('A Thematique');
-      $product->setEtat('A Etar');
-      $product->setAuteur('Auteu');
+        $livre = new Livre();
+        $dm = $this->get('doctrine_mongodb');
 
-     $dm = $this->get('doctrine_mongodb')->getManager();
-     $dm->persist($product);
-     $dm->flush();*/
+        $form = $this->createForm(LivreType::class, $livre);
+
+        $form->handleRequest($request);
 
 
-        $livres = $this->get('doctrine_mongodb')
-        ->getRepository('AppBundle:Livre')
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $livre = $form->getData();
+
+
+             $dm->getManager()->persist($livre);
+             $dm->getManager()->flush();
+
+             return $this->redirectToRoute('homepage');
+        }
+
+        $livres = $dm->getRepository('AppBundle:Livre')
         ->findAll();
 
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-             'livres' => $livres
+             'livres' => $livres, 'form' => $form->createView()
         ]);
     }
 }
