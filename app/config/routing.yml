@@ -1,3 +1,7 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+livre_delete:
+    path:       /livre/{id}/delete
+    defaults:   { _controller: AppBundle:Livre:deleteBook }

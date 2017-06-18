@@ -1,0 +1,25 @@
+
+
+.table-livres{
+
+}
+
+.ligne-livre{
+
+  padding: 5px 0px 5px 0px;
+  display: inline-flex;
+  -webkit-transition: background 0.3s, box-shadow 0.3s;
+   -moz-transition: background 0.3s, box-shadow 0.3s;
+   transition: background 0.3s, box-shadow 0.3s;
+
+}
+
+.ligne-livre div{
+  padding: 0px 2px 0px 2px;
+
+}
+
+.ligne-livre:hover{
+  background-color: #16a085;
+  color: white;
+}
