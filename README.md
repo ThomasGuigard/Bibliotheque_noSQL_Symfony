@@ -4,12 +4,16 @@ Bibliotheque
 Projet Symfony 3 avec base de données NoSQL
 
 Ce projet prenant en charge la gestion de livres se base sur un framework Symphony intégrant une base de données MongoDB.
+
 Il permet d'ajouter, supprimer, d'emprunter des livres en gardant en mémoire un email, un nom, une date.
 Les livres ont leur propres pages.
+
 Appel en ajax d'un template pour le faire apparaitre sous la forme d'une popup afin d'emprunter un livre
 
 Documents : 
+  
   Livre : 
+  
     Titre
     Auteur
     ISBN
@@ -19,6 +23,7 @@ Documents :
     Pret
   
   Pret :
+  
     Livre
     Date emprunt
     Nom personne
