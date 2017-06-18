@@ -45,9 +45,7 @@ class Livre
      */
     protected $thematiques;
 
-    /**
-     * @MongoDB\Field(type="string")
-     */
+    /** @MongoDB\ReferenceOne(targetDocument="Pret",nullable="true", inversedBy="livre") */
     protected $pret;
 
 
@@ -197,5 +195,27 @@ class Livre
     public function getPret()
     {
         return $this->pret;
+    }
+
+    /**
+     * Set isbn
+     *
+     * @param string $isbn
+     * @return $this
+     */
+    public function setIsbn($isbn)
+    {
+        $this->isbn = $isbn;
+        return $this;
+    }
+
+    /**
+     * Get isbn
+     *
+     * @return string $isbn
+     */
+    public function getIsbn()
+    {
+        return $this->isbn;
     }
 }

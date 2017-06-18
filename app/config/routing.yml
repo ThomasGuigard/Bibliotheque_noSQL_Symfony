@@ -3,5 +3,9 @@ app:
     type: annotation
 
 livre_delete:
-    path:       /livre/{id}/delete
+    path:       /book/{id}/delete
     defaults:   { _controller: AppBundle:Livre:deleteBook }
+
+livre_emprunt:
+    path:       /book/{id}/emprunt
+    defaults:   { _controller: AppBundle:Livre:managePret }

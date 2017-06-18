@@ -1,0 +1,16 @@
+<div class='popup-form div-centered' id="popup-pret">
+  <div class="popup-form-top">
+    <label for="motivation_compteRendu">{{'livre.addPret'}}</label>
+
+    <div class="close-popup">
+      <span  id="close_popup"  >x</span>
+    </div>
+  </div>
+  <div class="" name="motivation_compteRendu">
+    {{ form_start(form, { 'action': path('livre_emprunt', { 'id': form.vars.value.livre.id }), 'attr': { 'class': 'form-div' } }) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+  </div>
+
+
+</div>

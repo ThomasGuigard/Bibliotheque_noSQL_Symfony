@@ -45,9 +45,7 @@ class Livre
      */
     protected $thematiques;
 
-    /**
-     * @MongoDB\Field(type="string")
-     */
+    /** @MongoDB\ReferenceOne(targetDocument="Pret",nullable=true, inversedBy="livre") */
     protected $pret;
 
 

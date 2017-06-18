@@ -4,14 +4,17 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-
+          <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
         {% endblock %}
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+          <script src="{{ asset('js/jquery.js') }}"></script>
+          <script src="{{ asset('js/pret.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

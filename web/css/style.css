@@ -1,5 +1,26 @@
-body{
-  background-color: #efefef !important;
+body { background: #efefef; font: 18px/1.5 sans-serif; }
+h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: 36px; }
+h2 { font-size: 21px; margin-bottom: 1em; }
+p { margin: 0 0 1em 0; }
+a { color: #0000F0; }
+a:hover { text-decoration: none; }
+code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+#wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
+#container { padding: 2em; }
+#welcome, #status { margin-bottom: 2em; }
+#welcome h1 span { display: block; font-size: 75%; }
+#icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
+#icon-book { display: none; }
+
+@media (min-width: 768px) {
+    #wrapper { width: 80%; margin: 2em auto; }
+    #icon-book { display: inline-block; }
+    #status a, #next a { display: block; }
+
+    @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+    .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
 }
 
 .table-livres{
@@ -9,7 +30,7 @@ body{
 .ligne-livre{
 
   padding: 5px 0px 5px 0px;
-  display: inline-flex;
+  display: inline-block;
   -webkit-transition: background 0.3s, box-shadow 0.3s;
    -moz-transition: background 0.3s, box-shadow 0.3s;
    transition: background 0.3s, box-shadow 0.3s;
@@ -36,3 +57,77 @@ body{
     margin-top: 10px;
 
 }
+
+
+.popup-form{
+  background-color: #efefef;
+  box-sizing: border-box;
+  width: 80%;
+  margin: auto;
+  border-radius: 3px;
+
+}
+
+.popup-form > div{
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-form > div > button{
+  margin-bottom: 7px !important;
+}
+
+.popup-form > div > div > textarea {
+  resize: none;
+
+  padding: 5px;
+  border-radius: 2px;
+  height: 130px;
+}
+
+.popup-form > div > p {
+  text-align: justify !important;
+  padding: 14px;
+}
+
+.popup-form-top{
+  background-color: #333;
+  color: #CBCBCB;
+  display: block !important;
+  height: 2.2rem;
+  padding-top: 10px;
+}
+
+
+.close-popup{
+  color: #aaa;
+   float: right;
+   font-size: 1.5rem;
+   font-weight: bold;
+  font-family: Verdana,sans-serif;
+  margin-top: -10px;
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+.close-popup:hover{
+  color:white;
+}
+
+.div-centered, .popup-centered{
+  margin: auto ;
+  display: block !important;
+  text-align: center;
+}
+
+#lightbox {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.5);
+
+  }

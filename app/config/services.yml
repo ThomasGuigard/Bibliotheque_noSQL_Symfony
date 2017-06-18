@@ -38,3 +38,8 @@ services:
           class: AppBundle\Form\LivreType
           tags:
               - { name: form.type, alias: livre_add }
+
+    app.form.PretType:
+          class: AppBundle\Form\PretType
+          tags:
+              - { name: form.type, alias: livre_pret }
