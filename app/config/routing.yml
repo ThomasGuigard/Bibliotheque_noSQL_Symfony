@@ -9,3 +9,7 @@ livre_delete:
 livre_emprunt:
     path:       /book/{id}/emprunt
     defaults:   { _controller: AppBundle:Livre:managePret }
+
+livre:
+    path:       /book/{id}
+    defaults:   { _controller: AppBundle:Livre:book }

@@ -3,8 +3,8 @@ h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
 h1 { font-size: 36px; }
 h2 { font-size: 21px; margin-bottom: 1em; }
 p { margin: 0 0 1em 0; }
-a { color: #0000F0; }
-a:hover { text-decoration: none; }
+a span:hover { padding-bottom: 3px; border-bottom: 1px solid #333; }
+a { text-decoration: none; color: #333; font-size: 21px; width: auto;}
 code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
 #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
 #container { padding: 2em; }
@@ -30,12 +30,13 @@ code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break
 .ligne-livre{
 
   padding: 15px 0px 15px 0px;
-  display: inline-block;
+  display: inline-flex;
    width: 90%;
    margin: auto;
-
+  
    border-bottom: 1px solid black;
 }
+
 
 .ligne-livre div{
   padding: 0px 2px 0px 2px;

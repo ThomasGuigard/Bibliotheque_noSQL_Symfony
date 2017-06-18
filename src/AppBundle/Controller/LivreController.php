@@ -15,6 +15,13 @@ use Symfony\Component\HttpFoundation\Response;
 class LivreController extends Controller
 {
 
+ public function bookAction($id){
+
+   $livre=$this->get('doctrine_mongodb')->getRepository('AppBundle:Livre')->find($id);
+   return $this->render('livre/view.html.twig', array( 'livre' => $livre ));
+
+ }
+
 
  public function deleteBookAction($id){
 

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="form-div">
+    <div><h2>{{ livre.titre}} ( <span>{{ livre.auteur}}<span> )</h2></div>
+    <div class="">ISBN : {{ livre.isbn }}</div>
+    <div>Date d'achat : {{ livre.dateAchat|date("d/m/Y")}}</div>
+    <div>Etat : {{ livre.etat}}</div>
+    <div>Thematiques : {{ livre.thematiques}}</div>
+    <div>
+      {% if livre.pret is not null %}
+        Emprunté par {{ livre.pret.nomPersonne}} le {{ livre.pret.dateEmprunt|date('d/m/Y')}} <br>
+        Contactable via : {{ livre.pret.mailPersonne}} <br>
+        <button type="button" name="button_pret" onclick="window.location.href='{{ path('livre_emprunt', { 'id': livre.id }) }}'">Rendre le livre</button>
+      {% else %}
+        <button type="button" id="{{livre.id}}"  class="pret">Ajouter un emprunt</button>
+      {% endif %}
+    </div>
+    <div class="">
+      <button type="button" name="button_delete" onclick="window.location.href='{{ path('livre_delete', { 'id': livre.id }) }}'">Supprimer le livre</button>
+    </div>
+  </div>
+{% endblock %}

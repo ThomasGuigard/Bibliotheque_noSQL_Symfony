@@ -9,6 +9,8 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class LivreType extends AbstractType
 {
@@ -23,8 +25,15 @@ class LivreType extends AbstractType
             'class' => 'form-div')))
             ->add('dateAchat', DateType::class, array('attr' => array(
             'class' => 'form-div')))
-            ->add('etat', TextType::class, array('attr' => array(
-            'class' => 'form-div')))
+            ->add('etat', ChoiceType::class, array('attr' => array(
+            'class' => 'form-div'),
+            'choices'  => array(
+              'Excellent' => 'Excellent',
+              'Bien' => 'Bien',
+              'Moyen' => 'Moyen',
+              'Mauvais' => 'Mauvais',
+              'Piteux etat' => 'Piteux etat'
+            )))
             ->add('thematiques', TextType::class,array('attr' => array(
             'class' => 'form-div')))
             ->add('Ajouter un livre', SubmitType::class)
